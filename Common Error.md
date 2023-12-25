@@ -5,9 +5,17 @@
 ### 2，act函数报错
     如果是模拟事件行为，用await waitFor(()=>...)
 ### 3,react.jsx:type is invalid,expected a string/class component/function component,but got undefined.
-    如果组件import/export没错，尝试渲染组件时外面包裹一层（新组件返回该组件）
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9a6591e2cda4c13a538da037b9768a2~tplv-k3u1fbpfcp-watermark.image?)
-
+    如果组件import/export没写错，尝试渲染组件时外面包裹一层（新组件返回该组件）
+    test('test div component',()=>{
+        const Com = ()=>{
+            return (<div>123</div>);
+        };
+         render(
+            <PageContainer>
+                <Com />
+            </PageContainer>
+        );
+    })
 ### 4，can not destructure xxx of xxx.
     业务代码中不要解构该对象属性
 ### 5，found multiple elements by xxx.
