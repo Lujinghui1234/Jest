@@ -33,7 +33,7 @@
 ### 10, network forbidden报错，原因是页面的api没有mock到，以下方法mock api写法简单
     import * as request from '~/utils/request;
     
-    jest.mock(~/utils/request);//api所在的文件
+    jest.mock(~/utils/request);//api所在的文件，如果api是写在hook里面，就要mock那个hook所在的文件
     const mockApi = jest.spyon(request,'要mock的api')；
     mockApi.mockImplementation(():any=>
         Promise.resolve('api返回的数据');
