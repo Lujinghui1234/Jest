@@ -30,7 +30,7 @@
     组件没测试到，函数没调用
 ### 9，A component is changing the uncontrolled value state of RadioGroup to be controlled.
     受控组件没有给初始值，需要给初始值。formik中给了initailValues但还是error，还没解决。
-### 10, newwork forbidden 原因为页面的api没有mock到，以下方法mock api写法简单
+### 10, network forbidden报错，原因是页面的api没有mock到，以下方法mock api写法简单
     import * as request from '~/utils/request;
     
     jest.mock(~/utils/request);//api所在的文件
