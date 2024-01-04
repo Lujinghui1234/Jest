@@ -42,7 +42,6 @@
     //test文件
     const data = {name:'rose'};//要给指定的数据
     <Ele data={data} />；
-
     //页面文件
    {props.data.name==='rose' && <Ele />} 
 
