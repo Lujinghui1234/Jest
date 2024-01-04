@@ -38,6 +38,13 @@
     mockApi.mockImplementation(():any=>
         Promise.resolve('api返回的数据');
     );
+### 11, 某些组件没有覆盖到，检查是不是数据给得不对，比如某个组件需要props数据为指定数据才会渲染，就要在test文件中mock需要的props数据
+    //test文件
+    const data = {name:'rose'};//要给指定的数据
+    <Ele data={data} />；
+
+    //页面文件
+   {props.data.name==='rose' && <Ele />} 
 
 
     
