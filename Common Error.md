@@ -47,6 +47,20 @@
     {props.data.name==='rose' && <Ele />} 
    ```
 ### 12, 对于mui-material的Dialog组件，找元素不能用data-testid，这样会报Unable to find an element，要用getByAllText('submit')[0]//submit和[0]根据实际情况而定
+### 13, mock页面中的api：
+```
+import * as api from './query';
+import getData from './api;
+
+//mock用useQuery包了一层的api
+const mockApi = jest.spyOn(api,'oneApi');
+mockApi.mockImplementation(
+    ()=>mockApiData as any
+);
+
+//直接mock api
+(getData as jest.Mock).mockImplementation(()=>mockgetDataApiRes);
+```
 
     
     
