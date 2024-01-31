@@ -1,4 +1,4 @@
-<img width="262" alt="1706669232125" src="https://github.com/Lujinghui1234/Jest/assets/109168485/5833f4b7-7ccc-4abd-a247-937680716e94"># Jest总结
+# Jest总结
 ## 常见报错
 ### 1.usevisibilityContest must be used within a Visibility Provider.
     Provider没有传context,测试文件渲染组件的位置写错了，要参考业务代码的组件渲染方式，通常与之相同。
@@ -76,10 +76,6 @@ await getData()
 //jest  要这样写才可以
 (getData as jest.Mock).mockResolvedValue(mockApiData);
 ```
-
-    
-    
-    
 
 
 
