@@ -5,17 +5,7 @@
 ### 2，act函数报错
     如果是模拟事件行为，用await waitFor(()=>...)
 ### 3,react.jsx:type is invalid,expected a string/class component/function component,but got undefined.
-    如果组件import/export没写错，尝试渲染组件时外面包裹一层（新组件返回该组件）
-    test('test div component',()=>{
-        const Com = ()=>{
-            return (<div>123</div>);
-        };
-         render(
-            <PageContainer>
-                <Com />
-            </PageContainer>
-        );
-    })
+   
 ### 4，can not destructure xxx of xxx.
     业务代码中不要解构该对象属性
 ### 5，found multiple elements by xxx.
@@ -76,3 +66,4 @@ await getData()
 //jest  要这样写才可以
 (getData as jest.Mock).mockResolvedValue(mockApiData);
 ```
+### 15, 某个mock API或异步事件没有触发
