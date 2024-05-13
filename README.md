@@ -1,4 +1,4 @@
-![image](https://github.com/Lujinghui1234/Jest/assets/109168485/841a553c-dcd9-431a-b7ff-7681e98648c4)# Jest总结
+# Jest总结
 ## 常见报错
 ### 1.usevisibilityContest must be used within a Visibility Provider.
     Provider没有传context,测试文件渲染组件的位置写错了，要参考业务代码的组件渲染方式，通常与之相同。
