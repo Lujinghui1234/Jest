@@ -1,4 +1,4 @@
-# Jest总结
+![image](https://github.com/Lujinghui1234/Jest/assets/109168485/841a553c-dcd9-431a-b7ff-7681e98648c4)# Jest总结
 ## 常见报错
 ### 1.usevisibilityContest must be used within a Visibility Provider.
     Provider没有传context,测试文件渲染组件的位置写错了，要参考业务代码的组件渲染方式，通常与之相同。
@@ -66,4 +66,20 @@ await getData()
 //jest  要这样写才可以
 (getData as jest.Mock).mockResolvedValue(mockApiData);
 ```
-### 15, 某个mock API或异步事件没有触发
+### 15, 某个mock API或异步事件没有触发，要写在await waitFor里面
+```
+await waitFor(()=>expect(mockApi).toBecalled());
+```
+### 16,expect.any(Function)  用于验证某个值是否是一个函数的实例
+```
+//business code:
+<DdeBottomAppBar onOpen={()=>handel(true)} />
+```
+```
+//jest code:
+const mockDdeBottomAppBar = jest.fn();
+expect(mockDdeBottomAppBar).toBeCalledWith({
+   onOpen:expect.any(Function)
+})
+```
+
