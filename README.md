@@ -82,4 +82,6 @@ expect(mockDdeBottomAppBar).toBeCalledWith({
    onOpen:expect.any(Function)
 })
 ```
+### 17,mockReturnValue和mockResolvedValue有什么区别？
+jest.mocked(api).mockReturnValue(mockData);
 
