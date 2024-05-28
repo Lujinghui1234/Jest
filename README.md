@@ -38,6 +38,7 @@
    ```
 ### 12, 对于mui-material的Dialog组件，找元素不能用data-testid，这样会报Unable to find an element，要用getByAllText('submit')[0]//submit和[0]根据实际情况而定
 ### 13, mock页面中的api：
+1,第一种写法
 ```
 import * as query from './query';
 import getData from './api;
@@ -51,6 +52,13 @@ mockApi.mockImplementation(
 
 //直接mock api
 (getData as jest.Mock).mockImplementation(()=>mockApiData);
+```
+
+2,第二种写法：
+```
+jest.mock('~/api-v2/enquiry/api',()=>({
+getData:jest.fn().mockResolvedValue(mockData)
+))
 ```
 ### 14, 报错：getData(...).then is not a function //getData是个api函数
 ```
