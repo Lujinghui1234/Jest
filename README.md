@@ -98,5 +98,13 @@ jest.mocked(api).mockReturnValue(mockData);
 const mockCom = jest.fn();
 expect(mockCom).toHaveBeenCalledTimes(1);
 ```
-### 19. json报错
+### 19. SyntaxError:Unexpected token o in JSON at position 1 at JSON.parse(<anonymous>)
+```
+//业务代码：报错是因为Jest认为该数据不是JSON字符串
+const data = JSON.parse(localStorage.getItem('dcrConDetailData') as string);
+
+//解决方法：判断数据类型为string才JSON.parse
+const data = localStorage.getItem('dcrConDetailData');
+typeof data ==='string' && JSON.parse(data as string);
+```
 
