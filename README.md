@@ -107,4 +107,10 @@ const data = JSON.parse(localStorage.getItem('dcrConDetailData') as string);
 const data = localStorage.getItem('dcrConDetailData');
 typeof data ==='string' && JSON.parse(data as string);
 ```
+### 20. error:Time out in waitFor
+```
+jest.useFakeTimers;//add this code will solve the error.
+await waitFor(()=>some async logic...);
+```
+
 
