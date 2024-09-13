@@ -13,7 +13,7 @@
 ### 6. setState报错
     setState控制的业务代码内部出错；可以通过监控表单数据来setState
 ### 8. 异步请求的数据，没覆盖上
-    测试文件给数据初始值不要给空数据
+    异步数据没执行，测试代码给数据初始值不要给空数据
 ### 7. branch覆盖率难以提升
     不要用三元运算符，少用&& ??运算符
 ### 8. 函数覆盖率为0
@@ -28,7 +28,7 @@
     mockApi.mockImplementation(():any=>
         Promise.resolve('api返回的数据');
     );
-### 11. 某些组件没有覆盖到，检查是不是数据给得不对，比如某个组件需要props为指定数据才会渲染，就要在test文件中mock需要的props数据
+### 11. 组件没有覆盖到，检查是不是数据给得不对，比如组件需要指定props数据才会渲染，就要在测试代码中mock要求的props数据
    ```
     //test文件
     const data = {name:'rose'};//要给指定的数据
@@ -60,7 +60,7 @@ jest.mock('~/api-v2/enquiry/api',()=>({
 getData:jest.fn().mockResolvedValue(mockData)
 ))
 ```
-### 14. 报错：getData(...).then is not a function //这里的getData是个api函数
+### 14. 报错：getData(...).then is not a function //此处getData是个api函数
 ```
 //api
 await getData()
@@ -71,14 +71,14 @@ await getData()
 ...
 });
 
-//jest  要这样写才可以
+//jest  要这样写才可以，mock成功的返回值
 (getData as jest.Mock).mockResolvedValue(mockApiData);
 ```
 ### 15. 某个mock API或异步事件没有触发，要写在await waitFor里面
 ```
 await waitFor(()=>expect(mockApi).toBecalled());
 ```
-### 16. expect.any(Function)  用于验证某个值是否是一个函数的实例
+### 16. expect.any(Function)  用于验证某个值是否函数的实例
 ```
 //business code:
 <DdeBottomAppBar onOpen={()=>handel(true)} />
@@ -93,7 +93,7 @@ expect(mockDdeBottomAppBar).toBeCalledWith({
 ### 17. mockReturnValue和mockResolvedValue有什么区别？
 jest.mocked(api).mockReturnValue(mockData);
 ......待补充
-### 18. 对于某些没有逻辑只有纯render的组件，jest中如何写expect?
+### 18. 对于没有逻辑只是纯render的组件，jest中如何写expect?
 ```
 const mockCom = jest.fn();
 expect(mockCom).toHaveBeenCalledTimes(1);
